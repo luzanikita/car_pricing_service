@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def preprocess(dataset):
@@ -33,4 +34,6 @@ def process_categories(dataset):
     for col in cat_features:
         dataset[col] = dataset[col].astype('category')
     
+    dataset.fillna(np.nan, inplace=True)
+
     return dataset

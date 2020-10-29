@@ -33,12 +33,12 @@ class Predict(Resource):
 
 
         args = parser.parse_args()
-
         model = load_model("model.pkl")
-        input_data = pd.DataFrame()
+        input_data = pd.DataFrame([dict(args)])
         input_data = preprocess(input_data)
-        prediction = predict(model, input_data).values[0]
-        return prediction, 200
+        print(input_data)
+        prediction = predict(model, input_data)[0]
+        return str(prediction), 200
 
 
 class Version(Resource):
