@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Car pricing service</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	</head>
+ <body>
+	<div class="container">
+		<h1>Car pricing service</h1>
+		<p>Enter characteristics of your car</p>
+		<form action="" method="post"  onsubmit="disableEmptyInputs(this)">
+			<div class="form-group row">
+				<label for="engine_capacity" class="col-sm-2 col-form-label-sm">Engine capacity</label>
+				<div class="col-sm-2">
+					<input type="text" name="engine_capacity">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="type" class="col-sm-2 col-form-label-sm">Type</label>
+				<div class="col-sm-2">
+					<input type="text" name="type">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="registration_year" class="col-sm-2 col-form-label-sm">Registration year</label>
+				<div class="col-sm-2">
+					<input type="text" name="registration_year">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="gearbox" class="col-sm-2 col-form-label-sm">Gearbox</label>
+				<div class="col-sm-2">
+					<input type="text" name="gearbox">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="power" class="col-sm-2 col-form-label-sm">Power</label>
+				<div class="col-sm-2">
+					<input type="text" name="power">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="model" class="col-sm-2 col-form-label-sm">Model</label>
+				<div class="col-sm-2">
+					<input type="text" name="model">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="mileage" class="col-sm-2 col-form-label-sm">Mileage</label>
+				<div class="col-sm-2">
+					<input type="text" name="mileage">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="fuel" class="col-sm-2 col-form-label-sm">Fuel</label>
+				<div class="col-sm-2">
+					<input type="text" name="fuel">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="brand" class="col-sm-2 col-form-label-sm">Brand</label>
+				<div class="col-sm-2">
+					<input type="text" name="brand">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="damage" class="col-sm-2 col-form-label-sm">Damage</label>
+				<div class="col-sm-2">
+					<input type="text" name="damage">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="zipcode" class="col-sm-2 col-form-label-sm">Zipcode</label>
+				<div class="col-sm-2">
+					<input type="text" name="zipcode">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="insurance_price" class="col-sm-2 col-form-label-sm">Insurance price</label>
+				<div class="col-sm-2">
+					<input type="text" name="insurance_price">
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary mt-0" onsubmit="disableEmptyInputs">Predict</button>
+				</div>
+				<div class="col-sm-2">
+					{% if message %}
+						<h4>{{ message }}</h4>
+					{% endif %}
+				</div>
+			</div>
+			
+		</form>
+	</div>
+ </body>
+ <script>
+	function disableEmptyInputs(form) {
+		var controls = form.elements;
+		for (var i=0, iLen=controls.length; i<iLen; i++) {
+			controls[i].disabled = controls[i].value == '';
+		}
+	}
+ </script>
+</html>

@@ -6,6 +6,7 @@ def preprocess(dataset):
     if "zipcode" in dataset.columns:
         dataset.drop(columns="zipcode", inplace=True)
 
+    dataset.fillna(np.nan, inplace=True)
     dataset = fix_year(dataset)
     dataset = process_categories(dataset)
     
@@ -34,6 +35,4 @@ def process_categories(dataset):
     for col in cat_features:
         dataset[col] = dataset[col].astype('category')
     
-    dataset.fillna(np.nan, inplace=True)
-
     return dataset
